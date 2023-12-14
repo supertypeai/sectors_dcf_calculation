@@ -258,7 +258,7 @@ print("Done calculate intrinsic value")
 data = data[['symbol','intrinsic_value']]
 data = data[data['intrinsic_value'] > 0]
 
-data.to_csv('result/dcf_valuation_data_new_result.csv', index = False)
+data.to_csv('result/dcf_intrinsic_valuation.csv', index = False)
 
 for _, row in data.iterrows():
     upsert_data = {
