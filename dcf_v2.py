@@ -263,7 +263,8 @@ data.to_csv('result/dcf_intrinsic_valuation.csv', index = False)
 for _, row in data.iterrows():
     upsert_data = {
         'symbol': row['symbol'],
-        'intrinsic_value': row['intrinsic_value']
+        'intrinsic_value': row['intrinsic_value'],
+        'updated_on': pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     response = supabase.table('idx_key_stats').upsert(upsert_data).execute()
 
